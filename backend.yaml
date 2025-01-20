@@ -45,5 +45,14 @@
       src: backend.service
       dest: /etc/systemd/system/backend.service
 
+  - name: import mysql data
+    community.mysql.mysql_db:
+      state: import
+      name: all
+      login_user: root
+      login_password: ExpenseApp@1
+      login_host: mysql.ajay-juturu.site
+      target: /app/schema/backend.sql
+
   
 
